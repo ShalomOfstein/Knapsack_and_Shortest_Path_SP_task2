@@ -5,11 +5,7 @@ int shortestPathMat[MAXSIZE][MAXSIZE] ={0};
 
 void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
     // Initialize shortestPathMat with INF for all positions
-    for (int i = 0; i < MAXSIZE; i++) {
-        for (int j = 0; j < MAXSIZE; j++) {
-            shortestPathMat[i][j] = INF;
-        }
-    }
+    
     for(int i =0; i< MAXSIZE;i++){
         for(int j = 0; j<MAXSIZE; j++){
             scanf("%d" , &neighborsMatrix[i][j]);
@@ -17,7 +13,12 @@ void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
     }
     for (int i = 0; i < MAXSIZE; i++) {
         for (int j = 0; j < MAXSIZE; j++) {
-            if(neighborsMatrix[i][j]!=0){
+            shortestPathMat[i][j] = INF;
+        }
+    }
+    for (int i = 0; i < MAXSIZE; i++) {
+        for (int j = 0; j < MAXSIZE; j++) {
+            if(neighborsMatrix[i][j]!=0||i==j){
                 shortestPathMat[i][j] = neighborsMatrix[i][j];
             }
         }
