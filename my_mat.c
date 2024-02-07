@@ -17,7 +17,9 @@ void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
     }
     for (int i = 0; i < MAXSIZE; i++) {
         for (int j = 0; j < MAXSIZE; j++) {
-            shortestPathMat[i][j] = neighborsMatrix[i][j];
+            if(neighborsMatrix[i][j]!=0){
+                shortestPathMat[i][j] = neighborsMatrix[i][j];
+            }
         }
     }
     for (int k = 0; k < MAXSIZE; k++) {
