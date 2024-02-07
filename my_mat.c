@@ -18,7 +18,7 @@ void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
     }
     for (int i = 0; i < MAXSIZE; i++) {
         for (int j = 0; j < MAXSIZE; j++) {
-            if(neighborsMatrix[i][j]!=0||i==j){
+            if(i==j||neighborsMatrix[i][j]!=0){
                 shortestPathMat[i][j] = neighborsMatrix[i][j];
             }
         }
@@ -39,7 +39,7 @@ void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
 
    
 void find_path(int i , int j){
-    if(shortestPathMat[i][j]==INF){
+    if(shortestPathMat[i][j]==INF||shortestPathMat[i][j]<=0){
         printf("False\n");
     }
     else{
@@ -49,7 +49,7 @@ void find_path(int i , int j){
 }
 
 void shortest_path(int i, int j){
-    if (shortestPathMat[i][j]!=INF){
+    if (shortestPathMat[i][j]!=INF&&shortestPathMat[i][j]!=0){
         printf("%d\n",shortestPathMat[i][j]);
     }
     else{
