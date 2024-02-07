@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include "my_mat.h"
+#define INF 2147483647
+int shortestPathMat[MAXSIZE][MAXSIZE] ={0};
+
+void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
+    for(int i =0; i< MAXSIZE;i++){
+        for(int j = 0; j<MAXSIZE; j++){
+            scanf("%d" , &neighborsMatrix[i][j]);
+        }
+    }
+    for (int i = 0; i < MAXSIZE; i++) {
+        for (int j = 0; j < MAXSIZE; j++) {
+            shortestPathMat[i][j] = neighborsMatrix[i][j];
+        }
+    }
+    for (int k = 0; k < MAXSIZE; k++) {
+        for (int i = 0; i < MAXSIZE; i++) {
+            for (int j = 0; j < MAXSIZE; j++) {
+                if(shortestPathMat[i][k]!=INF && shortestPathMat[k][j]!=INF){
+                    if (shortestPathMat[i][k] + shortestPathMat[k][j] < shortestPathMat[i][j]) {
+                        shortestPathMat[i][j] = shortestPathMat[i][k] + shortestPathMat[k][j];
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+   
+void find_path(int i , int j){
+    if(shortestPathMat[i][j]==INF){
+        printf("False\n");
+    }
+    else{
+        printf("True\n");
+    }
+
+}
+
+void shortest_path(int i, int j){
+    if (shortestPathMat[i][j]!=INF){
+        printf("%d\n",shortestPathMat[i][j]);
+    }
+    else{
+        printf("-1\n");
+    }
+}
