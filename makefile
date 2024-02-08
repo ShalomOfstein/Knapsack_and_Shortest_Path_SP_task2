@@ -37,4 +37,4 @@ my_Knapsack.o: my_Knapsack.c
 
 #clean all the compiled files and leave the .txt/ .c / .h files
 clean:
-	rm -f *.o *.a *.so my_graph
+	rm -f *.o *.a *.so my_graph my_Knapsack

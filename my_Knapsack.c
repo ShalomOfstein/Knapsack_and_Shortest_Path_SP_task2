@@ -15,7 +15,14 @@ int knapSack (int weights[], int values[] , int selected_bool[]){
             }
             
             else if(weights[i-1]<=w){
-                knapsack[i][w] = max(values[i-1]+knapsack[i-1][w-weights[i-1]],knapsack[i-1][w]);
+                int include = values[i-1]+knapsack[i-1][w-weights[i-1]];
+                int exclude = knapsack[i-1][w];
+                if(include>exclude){
+                    knapsack[i][w] = include;
+                }
+                else{
+                    knapsack[i][w] = exclude;
+                }
             }
             
             else{
@@ -46,7 +53,7 @@ int main(){
 
     // Get the input from the user
     for(int i = 0; i<MAX_ITEMS; i++){
-        scanf("%d",&items[i]);
+        scanf("%c",&items[i]);
         scanf("%d",&weights[i]);
         scanf("%d",&values[i]);
         selected_bool[i] = 0;
