@@ -17,7 +17,7 @@ my_Knapsack: my_Knapsack.o
 
 #make the libraries:
 libmy_mat.a: my_mat.o
-	$(AR) rcu libmy_mat.a my_mat.o
+	$(AR) rsc libmy_mat.a my_mat.o
 	ranlib $@
 
 
