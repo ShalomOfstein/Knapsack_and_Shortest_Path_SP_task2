@@ -36,8 +36,8 @@ int knapSack (int weights[], int values[] , int selected_bool[]){
     int w = MAX_WEIGHT;
     while (i > 0 && w > 0) {
         if (knapsack[i][w] != knapsack[i - 1][w]) {
-            selected_bool[i - 1] = 1; // Set the selected_bool for this item
-            w = w- weights[i - 1];
+            selected_bool[i-1] = 1; // Set the selected_bool for this item
+            w = w- weights[i-1];
         }
         i--;
     } 
@@ -53,9 +53,9 @@ int main(){
 
     // Get the input from the user
     for(int i = 0; i<MAX_ITEMS; i++){
-        scanf("%c",&items[i]);
-        scanf("%d",&weights[i]);
+        scanf(" %c",&items[i]);
         scanf("%d",&values[i]);
+        scanf("%d",&weights[i]);
         selected_bool[i] = 0;
     }
     // Call the knapSack function to get the maximum profit
@@ -63,11 +63,11 @@ int main(){
 
     // Print the results
     printf("Maximum profit: %d\n", bestValue);
-    printf("Selected items: ");
+    printf("Selected items:");
 
     for(int i = 0; i<MAX_ITEMS; i++){
         if(selected_bool[i]){
-            printf("%d ",items[i]);
+            printf(" %c",items[i]);
         }
     }
 }
