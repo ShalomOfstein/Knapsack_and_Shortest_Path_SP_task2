@@ -4,18 +4,21 @@
 int shortestPathMat[MAXSIZE][MAXSIZE] ={0};
 
 void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
-    // Initialize shortestPathMat with INF for all positions
+    // Get the new matrix from the user
     
     for(int i =0; i< MAXSIZE;i++){
         for(int j = 0; j<MAXSIZE; j++){
             scanf("%d" , &neighborsMatrix[i][j]);
         }
     }
+    
+    // Initialize shortestPathMat with INF for all positions
     for (int i = 0; i < MAXSIZE; i++) {
         for (int j = 0; j < MAXSIZE; j++) {
             shortestPathMat[i][j] = INF;
         }
     }
+    // Initialize shortestPathMat with the values of the neighborsMatrix
     for (int i = 0; i < MAXSIZE; i++) {
         for (int j = 0; j < MAXSIZE; j++) {
             if(i==j||neighborsMatrix[i][j]!=0){
@@ -23,6 +26,8 @@ void getNewMatrix(int neighborsMatrix[MAXSIZE][MAXSIZE]){
             }
         }
     }
+    
+    // Floyd-Warshall algorithm
     for (int k = 0; k < MAXSIZE; k++) {
         for (int i = 0; i < MAXSIZE; i++) {
             for (int j = 0; j < MAXSIZE; j++) {
