@@ -1,6 +1,13 @@
 #include <stdio.h>
 #define MAX_ITEMS 5
 #define MAX_WEIGHT 20
+/*
+this program gets a list of (up to 5) items from the user with their weights and values
+then it calculates the maximum profit that can be obtained by putting the items in a knapsack
+so that the total weight of the items in the knapsack is less than or equal to a given weight
+it then prints the maximum profit and the items that should be put in the knapsack
+the input should be of the format: item value weight
+*/
 
 int knapSack (int weights[], int values[] , int selected_bool[]){
     int knapsack[MAX_ITEMS+1][MAX_WEIGHT+1];
@@ -49,7 +56,7 @@ int main(){
     char items[MAX_ITEMS]={0};
     int weights[MAX_ITEMS]={0};
     int values[MAX_ITEMS]={0};
-    int selected_bool[MAX_ITEMS];
+    int selected_bool[MAX_ITEMS]={0};
 
     // Get the input from the user
     for(int i = 0; i<MAX_ITEMS; i++){
